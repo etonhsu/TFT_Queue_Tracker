@@ -2,8 +2,9 @@ import asyncio
 import discord
 from discord.ext import commands
 import json
+from my_token import MY_TOKEN
 
-BOT_TOKEN = 'YOUR TOKEN HERE'
+BOT_TOKEN = MY_TOKEN
 
 intents = discord.Intents.default()
 intents.messages = True
@@ -27,12 +28,12 @@ async def on_shutdown():
 @bot.command(name='add', help='Adds a player to your tracking list in the format !add Name')
 async def add_player(ctx, game_name):
     if game_name not in track_list:
-        try:
+        if game_name in friends:
             track_list[game_name] = []
             track_list[game_name].append(friends[game_name])
             await ctx.send(game_name + ' has been added to your tracking list')
-        except KeyError as e:
-            await ctx.send(str(e) + ' is not online or not on your friends list')
+        else:
+            await ctx.send(game_name + ' is not online or not on your friends list')
 
 @bot.command(name='remove', help='Removes a player from your tracking list')
 async def delete_player(ctx, game_name):
@@ -81,14 +82,13 @@ async def track_queue(ctx):
                 if prev == 'chat' and curr == 'dnd':
                     tracked_friends += friend + ' has just gotten in queue\n'
                     send = True
-
-                track_list[friend].append(friends[friend])
-                track_list[friend].pop(0)
-
+                try:
+                    track_list[friend].append(friends[friend])
+                    track_list[friend].pop(0)
+                except KeyError:
+                    pass
         if send:
             await ctx.send(tracked_friends)
-        print(track_list)
         await asyncio.sleep(5)
-
 bot.run(BOT_TOKEN)
 
