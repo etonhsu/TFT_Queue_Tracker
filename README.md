@@ -6,6 +6,8 @@ Start by following Discord's own instructions for setting up a bot: https://disc
 
 Once you have the bot setup, copy the token provided and find the line at the top of bot.py where it says BOT_TOKEN = MY_TOKEN. Replace MY_TOKEN with your own token. 
 
+Install all the necessary dependencies by running pip install -r requirements.txt
+
 Make sure your league client is open, as the LCU API (League Client Update API) requires an open client to function.
 
 First run api.py, which will generate friends_list.json. Then run bot.py. Once both programs are running you can start using the bot!
