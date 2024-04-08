@@ -2,9 +2,8 @@ import asyncio
 import discord
 from discord.ext import commands
 import json
-from my_token import MY_TOKEN
 
-BOT_TOKEN = MY_TOKEN
+BOT_TOKEN = 'YOUR TOKEN HERE'
 
 intents = discord.Intents.default()
 intents.messages = True
