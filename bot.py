@@ -35,6 +35,7 @@ async def add_player(ctx, game_name):
         else:
             await ctx.send(game_name + ' is not online or not on your friends list')
 
+
 @bot.command(name='remove', help='Removes a player from your tracking list')
 async def delete_player(ctx, game_name):
     if game_name not in track_list:
@@ -42,6 +43,7 @@ async def delete_player(ctx, game_name):
     else:
         del track_list[game_name]
         await ctx.send(game_name + ' has been removed from your tracking list')
+
 
 @bot.command(name='list', help='Lists all online players on your friends list.')
 async def list_friends(ctx, member: str = None):

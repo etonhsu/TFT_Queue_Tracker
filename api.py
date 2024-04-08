@@ -4,6 +4,8 @@ from lcu_driver import Connector
 import json
 
 connector = Connector()
+
+
 async def check_friends(connection):
     endpoint = '/lol-chat/v1/friends'
     cwd = os.getcwd()
