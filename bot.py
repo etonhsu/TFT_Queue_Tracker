@@ -83,7 +83,7 @@ async def track_queue(ctx):
                 try:
                     track_list[friend].append(friends[friend])
                 except KeyError as e:
-                    await channel.send(str(e) + ' is not online or not on your friends list')
+                    pass
             else:
                 prev = track_list[friend][0]
                 curr = track_list[friend][1]
