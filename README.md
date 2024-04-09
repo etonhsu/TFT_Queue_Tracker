@@ -28,6 +28,12 @@ Once the bot has been installed onto one of your discord servers, you can DM it 
 
 **!list track**: Shows you all the people who are in your tracking list and their current game status. 
 
+**!queue**: Turns off the tracker when you get in queue/ game (having successfully sniped someone hopefully). Turns the tracker back on once you're out of queue/ game
+
+**!check**: Checks the status of the tracker (on/off)
+
+**!toggle**: Toggles the tracker on/off
+
 *Note: The way that the league client displays status’s is as follows:
 Chat: Online 
 Away: Away
