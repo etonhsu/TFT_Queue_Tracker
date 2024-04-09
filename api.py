@@ -7,21 +7,31 @@ connector = Connector()
 
 
 async def check_friends(connection):
-    endpoint = '/lol-chat/v1/friends'
+    endpoint_friends = '/lol-chat/v1/friends'
+    endpoint_me = '/lol-chat/v1/me'
     cwd = os.getcwd()
-    file_path = cwd + '/friends_list.json'
+    friend_file_path = cwd + '/friends_list.json'
+    me_file_path = cwd + '/me.json'
     while True:
         friends = {}
-        response = await connection.request('GET', endpoint)
-        data = await response.json()
-        for point in data:
+        friend_response = await connection.request('GET', endpoint_friends)
+        friend_data = await friend_response.json()
+
+        for point in friend_data:
             friend_name = point['name']
             friend_status = point['availability']
             if friend_status != 'mobile' and friend_status != 'offline' and friend_status != 'away':
                 friends[friend_name] = friend_status
-
-        with open(file_path, 'w') as json_file:
+        with open(friend_file_path, 'w') as json_file:
             json.dump(friends, json_file)
+        json_file.close()
+
+        me = {}
+        me_response = await connection.request('GET', endpoint_me)
+        me_data = await me_response.json()
+        me['me'] = me_data['availability']
+        with open(me_file_path, 'w') as json_file:
+            json.dump(me, json_file)
         json_file.close()
         await asyncio.sleep(10)
 
