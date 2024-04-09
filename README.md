@@ -4,6 +4,8 @@
 
 Start by following Discord's own instructions for setting up a bot: https://discordpy.readthedocs.io/en/stable/discord.html
 
+Make sure message content intent is checked under privileged gateway intents in the discord developer portal.
+
 Once you have the bot setup, copy the token provided and find the line at the top of bot.py where it says BOT_TOKEN = 'YOUR TOKEN HERE' and replace with your token inside the quotes
 
 Install all the necessary dependencies by running: 
