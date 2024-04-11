@@ -2,8 +2,9 @@ import asyncio
 import discord
 from discord.ext import commands
 import json
+from my_token import MY_TOKEN
 
-BOT_TOKEN = 'YOUR TOKEN HERE'
+BOT_TOKEN = MY_TOKEN
 
 intents = discord.Intents.default()
 intents.messages = True
@@ -185,6 +186,12 @@ async def toggle_track(ctx):
     else:
         await channel.send('Track function has been turned on')
         await ctx.invoke(bot.get_command('track'))
+
+
+@bot.command(name='shutdown', help='Shuts down the bot')
+async def shutdown(ctx):
+    await ctx.send('Bot is shutting down')
+    await bot.close()
 
 bot.run(BOT_TOKEN)
 
