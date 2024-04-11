@@ -4,6 +4,8 @@
 
 Start by following Discord's own instructions for setting up a bot: https://discordpy.readthedocs.io/en/stable/discord.html
 
+Make sure message content intent is checked under privileged gateway intents in the discord developer portal.
+
 Once you have the bot setup, copy the token provided and find the line at the top of bot.py where it says BOT_TOKEN = 'YOUR TOKEN HERE' and replace with your token inside the quotes
 
 Install all the necessary dependencies by running: 
@@ -27,6 +29,12 @@ Once the bot has been installed onto one of your discord servers, you can DM it 
 **!track**: Tracks all the people you added to your tracking list, and notifies you when they get in queue.
 
 **!list track**: Shows you all the people who are in your tracking list and their current game status. 
+
+**!queue**: Turns off the tracker when you get in queue/ game (having successfully sniped someone hopefully). Turns the tracker back on once you're out of queue/ game
+
+**!check**: Checks the status of the tracker (on/off)
+
+**!toggle**: Toggles the tracker on/off
 
 *Note: The way that the league client displays status’s is as follows:
 Chat: Online 
