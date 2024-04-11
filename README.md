@@ -36,6 +36,8 @@ Once the bot has been installed onto one of your discord servers, you can DM it 
 
 **!toggle**: Toggles the tracker on/off
 
+**!shutdown**: Shuts the bot down. There are instances where the bot will continue to run after you close your IDE, and if you don't notice and run the bot again, you'll have 2 instances of the bot running. This command lets you shutdown both instances and manually restart the bot.
+
 *Note: The way that the league client displays status’s is as follows:
 Chat: Online 
 Away: Away
